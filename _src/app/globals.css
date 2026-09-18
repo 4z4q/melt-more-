@@ -1,0 +1,155 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Black Chocolate brand palette */
+  --background: #fdfaf6; /* warm white */
+  --foreground: #2c1810; /* deep espresso brown */
+  --card: #ffffff;
+  --card-foreground: #2c1810;
+  --popover: #ffffff;
+  --popover-foreground: #2c1810;
+  --primary: #c4956a; /* dusty rose gold */
+  --primary-foreground: #fdfaf6;
+  --secondary: #f5efe6; /* soft cream */
+  --secondary-foreground: #2c1810;
+  --muted: #f5efe6;
+  --muted-foreground: #6b4f3a;
+  --accent: #e8d5b7; /* warm beige */
+  --accent-foreground: #2c1810;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: #ece2d2;
+  --input: #ece2d2;
+  --ring: #c4956a;
+
+  /* PKG brand tokens */
+  --cream: #f5efe6;
+  --warm-white: #fdfaf6;
+  --rose-gold: #c4956a;
+  --warm-beige: #e8d5b7;
+  --espresso: #2c1810;
+  --blush: #f2d5c4;
+  --sage: #d4cfc6;
+  --antique-gold: #b8963e;
+
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-arabic: var(--font-tajawal), ui-sans-serif, system-ui;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-cream: var(--cream);
+  --color-warm-white: var(--warm-white);
+  --color-rose-gold: var(--rose-gold);
+  --color-warm-beige: var(--warm-beige);
+  --color-espresso: var(--espresso);
+  --color-blush: var(--blush);
+  --color-sage: var(--sage);
+  --color-antique-gold: var(--antique-gold);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  html,
+  body {
+    background-color: var(--warm-white);
+    color: var(--espresso);
+  }
+  body {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+  :lang(ar),
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+}
+
+@layer utilities {
+  .font-serif-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+  }
+  .shimmer-sweep {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-sweep::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 60%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.9s ease;
+    pointer-events: none;
+  }
+  .shimmer-sweep:hover::after {
+    transform: translateX(100%);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Soft scrollbar */
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--warm-white);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--warm-beige);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rose-gold);
+}
