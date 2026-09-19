@@ -1,4 +1,4 @@
-// Black Chocolate — flavours catalogue
+// Melt More — flavours catalogue
 // Developer: replace with all 50–60 real flavours and real image paths.
 // Each entry only needs { id, name, image }.
 

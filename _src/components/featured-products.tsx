@@ -9,7 +9,7 @@ import { SectionDivider } from "./section-divider";
 const WHATSAPP_NUMBER = "+966534611644";
 
 function buildWhatsAppLink(p: { name: string; price: number }) {
-  const message = `مرحباً Black Chocolate،
+  const message = `مرحباً Melt More،
 أرغب في طلب المنتج التالي:
 
 • ${p.name}

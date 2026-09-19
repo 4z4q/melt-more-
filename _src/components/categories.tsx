@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 
 const categories = [
-  { label: "الشوكولاتة البلجيكية" },
+  { label: "الشوكولاتة السويسرية" },
   { label: "الحلويات العربية الفاخرة" },
   { label: "الحلى والتشيزكيك" },
   { label: "الموالح الراقية" },

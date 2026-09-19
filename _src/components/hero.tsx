@@ -18,7 +18,7 @@ const slides = [
     id: 1,
     desktopSrc: "/og-image.jpg",
     mobileSrc: "/og-image.jpg",
-    alt: "Black Chocolate – مجموعة هدايا الشوكولاتة البلجيكية الفاخرة",
+    alt: "Melt More – مجموعة هدايا الشوكولاتة السويسرية الفاخرة",
     label: "اكتشف تشكيلتنا",
     href: "#packages",
   },
@@ -26,7 +26,7 @@ const slides = [
     id: 2,
     desktopSrc: "/banner.webp",
     mobileSrc: "/banner.webp",
-    alt: "توت مغطى بالشوكولاتة البلجيكية من بلاك شوكلت الرياض",
+    alt: "توت مغطى بالشوكولاتة السويسرية من ميلت مور الرياض",
     label: "تعرف على البكجات",
     href: "#packages",
   },
@@ -34,7 +34,7 @@ const slides = [
     id: 3,
     desktopSrc: "/1.jpg",
     mobileSrc: "/1.jpg",
-    alt: "هدايا الأفراح والمناسبات – بلاك شوكلت الرياض",
+    alt: "هدايا الأفراح والمناسبات – ميلت مور الرياض",
     label: "اطلب الآن",
     href: "#packages",
   },
@@ -76,7 +76,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      aria-label="عروض بلاك شوكلت"
+      aria-label="عروض ميلت مور"
       className="relative w-full overflow-hidden bg-[#1a4d4b] pt-[108px] md:pt-16"
       onKeyDown={handleKeyDown}
       tabIndex={0}

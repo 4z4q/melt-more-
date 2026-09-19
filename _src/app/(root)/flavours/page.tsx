@@ -4,9 +4,9 @@ import { WaveDivider } from "@/components/wave-divider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "الحشوات | Black Chocolate",
+  title: "الحشوات | Melt More",
   description:
-    "تشكيلة حشوات بلاك شوكلت — أكثر من 30 نكهة من الشوكولاتة البلجيكية الفاخرة في الرياض.",
+    "تشكيلة حشوات ميلت مور — أكثر من 30 نكهة من الشوكولاتة السويسرية الفاخرة في الرياض.",
   alternates: { canonical: "/flavours" },
 };
 

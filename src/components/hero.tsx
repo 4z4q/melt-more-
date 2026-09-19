@@ -8,8 +8,8 @@ export function Hero() {
       <div className="mm-hero-shade" />
       <div className="mm-container mm-hero-content">
         <p className="mm-eyebrow"><span /> MELT MORE · CHOCOLATE & MORE</p>
-        <h1 id="hero-title">لحظات تُذاق،<br /><em>وذكريات تبقى.</em></h1>
-        <p className="mm-hero-description">شوكولاتة تأسر الحواس، وضيافة تُكمل جمال مناسبتك.<br className="hidden sm:block" /> من أول قطعة… إلى آخر لحظة.</p>
+        <h1 id="hero-title">حلويات الرياض،<br /><em>بلمسة ميلت مور.</em></h1>
+        <p className="mm-hero-description">شوكولاتة سويسرية وحلويات وصواني ضيافة في الرياض.<br className="hidden sm:block" /> باقات حالي وموالح تُكمل جمال أفراحك ومناسباتك.</p>
         <div className="mm-actions">
           <a className="mm-button mm-button-gold" href="#packages">اكتشف باقات الضيافة <ArrowUpLeft size={18} /></a>
           <Link className="mm-button mm-button-glass" href="/flavours">تعرّف على الحشوات <ArrowUpLeft size={18} /></Link>

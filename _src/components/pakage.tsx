@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 const WHATSAPP_NUMBER = "+966534611644";
 
 function buildWhatsAppLink(p: { name: string }) {
-  const message = `مرحباً Black Chocolate،\nأرغب في طلب البكج التالي:\n\n• ${p.name}\n\nشكراً لكم.`;
+  const message = `مرحباً Melt More،\nأرغب في طلب البكج التالي:\n\n• ${p.name}\n\nشكراً لكم.`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
@@ -346,7 +346,7 @@ export function PkgPackages() {
           className="text-center mb-14"
         >
           <p className="text-[10px] tracking-[0.4em] uppercase text-[#d4a96a] mb-3 font-medium">
-            Black Chocolate
+            Melt More
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-[#fbebd3] leading-tight">
             بكجاتنا المميزة

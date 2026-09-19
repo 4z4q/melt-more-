@@ -242,7 +242,7 @@ export function OrderCTA() {
                 <Music2 className="w-4 h-4" />
               </a>
               <a
-                href="https://www.instagram.com/blackchocolate666"
+                href="https://www.instagram.com/melt.more"
                 aria-label="Instagram"
                 className="w-12 h-12 rounded-full border border-[#b8d8d7] bg-[#fff8f0] flex items-center justify-center text-[#458482] hover:text-[#fff8f0] hover:bg-[#458482] hover:border-[#458482] transition-colors duration-500"
               >

@@ -21,7 +21,7 @@ export function ProductGrid({ selectedIds, onToggle }: ProductGridProps) {
         {/* Section title with thin gold underline */}
         <div className="text-center mb-12 sm:mb-14">
           <p className="text-xs tracking-[0.4em] uppercase text-[#458482] mb-3">
-            Black Chocolate
+            Melt More
           </p>
           <h2
             id="flavours-title"

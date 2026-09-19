@@ -15,7 +15,7 @@ export const WHATSAPP_NUMBER = "+966534611644";
  */
 export function buildOrderLink(selectedNames: string[]): string {
   const lines = selectedNames.map((name) => `• ${name}`).join("\n");
-  const message = `مرحباً Black Chocolate 
+  const message = `مرحباً Melt More 
 قمت بأختيار النكهات التالية:
 
 ${lines}

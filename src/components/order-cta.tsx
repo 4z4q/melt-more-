@@ -1,8 +1,5 @@
 import { ArrowUpLeft, MapPin, Clock, Phone, MessageCircle } from "lucide-react";
-const branches = [
- {name:"فرع الشفا",neighborhood:"حي الشفا",address:"شارع التخصصي",hours:"٣:٣٠ م – ١١ م",phone:"+966552202321",mapsUrl:"https://maps.app.goo.gl/QCTbRkfCXXZmcQr3A"},
- {name:"فرع الطائف",neighborhood:"الطائف",address:"طريق الملك عبدالله",hours:"٤:٠٠ م – ١١ م",phone:"+966500462668",mapsUrl:"https://maps.app.goo.gl/FHAz8E6RCYn3DUWY7"}
-];
+import { branches } from "@/lib/branches";
 export function OrderCTA() {
  return <>
  <section id="order" className="mm-order"><div className="mm-container mm-order-inner"><div><p className="mm-eyebrow">LET’S MAKE IT MEMORABLE</p><h2>لديك مناسبة قريبة؟<br/><em>نضيف لها الحلاوة.</em></h2><p>حدّثنا عن مناسبتك، ودعنا نساعدك في اختيار الباقة<br className="hidden sm:block"/> والحشوات والتقديم الذي يليق بها.</p></div><a className="mm-button mm-button-gold" href="https://wa.me/966552202321" target="_blank" rel="noopener noreferrer"><MessageCircle size={19}/> نسّق مناسبتك عبر واتساب <ArrowUpLeft size={18}/></a></div><span className="mm-order-watermark" aria-hidden="true">More.</span></section>

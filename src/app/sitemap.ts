@@ -1,20 +1,5 @@
-import { MetadataRoute } from "next";
-
+import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/seo";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://black-chcolate.vercel.app";
-
-  return [
-    {
-      url: `${baseUrl}/`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/flavours`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-  ];
+  return [{ url: SITE_URL + "/" }, { url: SITE_URL + "/flavours" }];
 }

@@ -24,16 +24,16 @@ const Thamny = localFont({
   ],
   variable: "--font-cairo",
 });
-const SITE_URL = "https://black-chcolate.vercel.app";
+const SITE_URL = "https://melt-more.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Black Chocolate | بلاك شوكلت",
-    template: "%s | Black Chocolate",
+    default: "Melt More | ميلت مور",
+    template: "%s | Melt More",
   },
   description:
-    "بلاك شوكلت Black Chocolate – شوكولاتة بلجيكية فاخرة، صواني ضيافة، توت مغطى بالشوكولاتة، بكجات هدايا للمناسبات والأعراس في الرياض. توصيل مجاني داخل الرياض. اطلب عبر واتساب.",
+    "ميلت مور Melt More – شوكولاتة سويسرية فاخرة، صواني ضيافة، توت مغطى بالشوكولاتة، بكجات هدايا للمناسبات والأعراس في الرياض. توصيل مجاني داخل الرياض. اطلب عبر واتساب.",
   // app/layout.tsx — keywords محدّثة فقط، باقي الكود كما هو
   // غيّر فقط قسم keywords في metadata الموجود لديك:
 
@@ -52,27 +52,27 @@ export const metadata: Metadata = {
     "توزيعات حفلات الرياض",
 
     // ✅ الاسم التجاري
-    "بلاك شوكلت",
-    "Black Chocolate",
-    "Black Chocolate الرياض",
+    "ميلت مور",
+    "Melt More",
+    "Melt More الرياض",
 
     // ✅ المنتج + الموقع
-    "شوكولاتة بلجيكية الرياض",
-    "شوكولاتة بلجيكية مصنوعة يدوياً الرياض",
+    "شوكولاتة سويسرية الرياض",
+    "شوكولاتة سويسرية مصنوعة يدوياً الرياض",
     "شوكولاتة فاخرة حي الحمراء",
     "شوكولاتة حي الخليج الرياض",
 
     // ✅ عام (منافسة عالية — نضعها لكن ما نركّز عليها)
     "هدايا شوكولاتة فاخرة",
-    "شوكولاتة بلجيكية السعودية",
+    "شوكولاتة سويسرية السعودية",
     "luxury chocolate Riyadh",
     "chocolate gifts Riyadh",
-    "Belgian chocolate Saudi Arabia",
+    "Swiss chocolate Saudi Arabia",
   ],
-  authors: [{ name: "Black Chocolate" }],
-  creator: "Black Chocolate",
-  publisher: "Black Chocolate",
-  applicationName: "Black Chocolate",
+  authors: [{ name: "Melt More" }],
+  creator: "Melt More",
+  publisher: "Melt More",
+  applicationName: "Melt More",
   category: "Food & Beverage",
   formatDetection: {
     email: false,
@@ -90,24 +90,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ar_SA",
     url: SITE_URL,
-    siteName: "Black Chocolate",
-    title: "Black Chocolate | شوكولاتة بلجيكية فاخرة في الرياض",
+    siteName: "Melt More",
+    title: "Melt More | شوكولاتة سويسرية فاخرة في الرياض",
     description:
-      "تجربة فاخرة من الشوكولاتة البلجيكية والحلويات العربية. صواني ضيافة، توت بالشوكولاتة، وبكجات هدايا للمناسبات في الرياض.",
+      "تجربة فاخرة من الشوكولاتة السويسرية والحلويات العربية. صواني ضيافة، توت بالشوكولاتة، وبكجات هدايا للمناسبات في الرياض.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Black Chocolate – شوكولاتة بلجيكية فاخرة في الرياض",
+        alt: "Melt More – شوكولاتة سويسرية فاخرة في الرياض",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Black Chocolate | شوكولاتة بلجيكية فاخرة في الرياض",
+    title: "Melt More | شوكولاتة سويسرية فاخرة في الرياض",
     description:
-      "بلاك شوكلت – شوكولاتة بلجيكية، صواني ضيافة، وبكجات هدايا فاخرة. توصيل داخل الرياض.",
+      "ميلت مور – شوكولاتة سويسرية، صواني ضيافة، وبكجات هدايا فاخرة. توصيل داخل الرياض.",
     images: ["/og-image.jpg"],
   },
   robots: {

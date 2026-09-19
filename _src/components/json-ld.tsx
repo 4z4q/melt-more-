@@ -1,10 +1,10 @@
 // components/json-ld.tsx
-// Site-wide structured data for Black Chocolate (LocalBusiness + Organization + WebSite + FAQ).
+// Site-wide structured data for Melt More (LocalBusiness + Organization + WebSite + FAQ).
 // Per-page schemas (Breadcrumb, ItemList, Product) live in their own components.
 
 import { products } from "@/lib/products";
 import { faqs } from "@/lib/faqs";
-const SITE_URL = "https://black-chcolate.vercel.app";
+const SITE_URL = "https://melt-more.vercel.app";
 
 export function JsonLd() {
   const schema = {
@@ -14,20 +14,20 @@ export function JsonLd() {
       {
         "@type": "Organization",
         "@id": `${SITE_URL}/#organization`,
-        name: "Black Chocolate",
-        alternateName: "بلاك شوكلت",
+        name: "Melt More",
+        alternateName: "ميلت مور",
         url: SITE_URL,
         logo: {
           "@type": "ImageObject",
-          url: `${SITE_URL}/black_chocolate_logo.png`,
+          url: `${SITE_URL}/logo.png`,
           width: 512,
           height: 512,
         },
         image: `${SITE_URL}/og-image.jpg`,
         description:
-          "Black Chocolate (بلاك شوكلت) — متجر متخصص في الشوكولاتة البلجيكية الفاخرة، صواني الضيافة، وبكجات الهدايا للمناسبات في الرياض.",
+          "Melt More (ميلت مور) — متجر متخصص في الشوكولاتة السويسرية الفاخرة، صواني الضيافة، وبكجات الهدايا للمناسبات في الرياض.",
         sameAs: [
-          "https://www.instagram.com/blackchocolate666",
+          "https://www.instagram.com/melt.more",
           "https://www.tiktok.com/@black.chcolate",
           "https://wa.me/966534611644",
         ],
@@ -44,16 +44,16 @@ export function JsonLd() {
       {
         "@type": ["FoodEstablishment", "LocalBusiness"],
         "@id": `${SITE_URL}/#business`,
-        name: "Black Chocolate",
-        alternateName: "بلاك شوكلت",
+        name: "Melt More",
+        alternateName: "ميلت مور",
         description:
-          "متجر متخصص في بيع الشوكولاتة الفاخرة والحلويات الطازجة في الرياض. نقدم تشكيلة مميزة من صواني الضيافة وصواني المناسبات المصممة بعناية لتناسب الأفراح، حفلات الزواج، أعياد الميلاد، الاجتماعات، والجمعات العائلية. شوكولاتة بلجيكية فاخرة بتغليف أنيق، وحلويات مشكلة يومياً.",
+          "متجر متخصص في بيع الشوكولاتة الفاخرة والحلويات الطازجة في الرياض. نقدم تشكيلة مميزة من صواني الضيافة وصواني المناسبات المصممة بعناية لتناسب الأفراح، حفلات الزواج، أعياد الميلاد، الاجتماعات، والجمعات العائلية. شوكولاتة سويسرية فاخرة بتغليف أنيق، وحلويات مشكلة يومياً.",
         url: SITE_URL,
         telephone: "+966534611644",
         priceRange: "٣٦٠ ر.س — ٥١٠٠ ر.س",
         image: [`${SITE_URL}/og-image.jpg`],
-        logo: `${SITE_URL}/black_chocolate_logo.png`,
-        servesCuisine: ["شوكولاتة بلجيكية", "حلويات عربية", "موالح فاخرة"],
+        logo: `${SITE_URL}/logo.png`,
+        servesCuisine: ["شوكولاتة سويسرية", "حلويات عربية", "موالح فاخرة"],
         currenciesAccepted: "SAR",
         paymentAccepted: "Cash, Credit Card, Apple Pay, Mada",
         parentOrganization: { "@id": `${SITE_URL}/#organization` },
@@ -94,7 +94,7 @@ export function JsonLd() {
         ],
 
         sameAs: [
-          "https://www.instagram.com/blackchocolate666",
+          "https://www.instagram.com/melt.more",
           "https://www.tiktok.com/@black.chcolate",
           "https://wa.me/966534611644",
         ],
@@ -120,7 +120,7 @@ export function JsonLd() {
         department: [
           {
             "@type": "FoodEstablishment",
-            name: "Black Chocolate – فرع الحمراء",
+            name: "Melt More – فرع الحمراء",
             address: {
               "@type": "PostalAddress",
               streetAddress: "طريق الإمام عبد الله بن سعود بن عبد العزيز",
@@ -137,7 +137,7 @@ export function JsonLd() {
           },
           {
             "@type": "FoodEstablishment",
-            name: "Black Chocolate – فرع الخليج",
+            name: "Melt More – فرع الخليج",
             address: {
               "@type": "PostalAddress",
               streetAddress: "طريق الأمير بندر بن عبد العزيز",
@@ -160,8 +160,8 @@ export function JsonLd() {
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
-        name: "Black Chocolate",
-        alternateName: "بلاك شوكلت",
+        name: "Melt More",
+        alternateName: "ميلت مور",
         inLanguage: "ar-SA",
         publisher: { "@id": `${SITE_URL}/#organization` },
       },
@@ -172,7 +172,7 @@ export function JsonLd() {
         "@id": `${SITE_URL}/#flavours`,
         name: "حشوات الشوكولاتة الفاخرة",
         description:
-          "تشكيلة حشوات Black Chocolate من الشوكولاتة البلجيكية والمكسرات والقهوة المختصة.",
+          "تشكيلة حشوات Melt More من الشوكولاتة السويسرية والمكسرات والقهوة المختصة.",
         numberOfItems: products.length,
         itemListElement: products.slice(0, 20).map((p, i) => ({
           "@type": "ListItem",
@@ -185,7 +185,7 @@ export function JsonLd() {
       // ⑤ FAQ — مبنية على وصف البروفايل الفعلي
       {
         "@type": "FAQPage",
-        name: "الأسئلة الشائعة - Black Chocolate",
+        name: "الأسئلة الشائعة - Melt More",
         mainEntity: faqs.map(({ q, a }) => ({
           "@type": "Question",
           name: q,

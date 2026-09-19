@@ -16,8 +16,8 @@ const links = [
 
 const Logo = ({ className }: { className?: string }) => (
   <Image
-    src="/black_chocolate_logo.png"
-    alt="Black Chocolate Logo"
+    src="/logo.png"
+    alt="Melt More Logo"
     width={160}
     height={132}
     className={cn("h-auto object-contain", className)}
@@ -64,7 +64,7 @@ export function Navbar() {
         {/* ═════════ Logo ═════════ */}
         <Link
           href="/"
-          aria-label="Black Chocolate - الصفحة الرئيسية"
+          aria-label="Melt More - الصفحة الرئيسية"
           className={cn(
             "flex items-center transition-all duration-500",
 

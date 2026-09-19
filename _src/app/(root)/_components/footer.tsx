@@ -34,7 +34,7 @@ export function Footer() {
             <Music2 className="w-4 h-4" />
           </a>
           <a
-            href="https://www.instagram.com/blackchocolate666"
+            href="https://www.instagram.com/melt.more"
             aria-label="Instagram"
             className="w-10 h-10 rounded-full border border-[#fbebd3]/25 flex items-center justify-center text-[#fbebd3]/80 hover:text-[#1a4d4b] hover:bg-[#d4a96a] hover:border-[#d4a96a] transition-colors"
           >
@@ -61,7 +61,7 @@ export function Footer() {
         />
 
         <p className="mt-6 text-xs tracking-[0.2em] uppercase text-[#fbebd3]/55">
-          © 2026 Black Chocolate — All rights reserved
+          © 2026 Melt More — All rights reserved
         </p>
       </div>
     </footer>

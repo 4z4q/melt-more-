@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Black Chocolate brand palette */
+  /* Melt More brand palette */
   --background: #fdfaf6; /* warm white */
   --foreground: #2c1810; /* deep espresso brown */
   --card: #ffffff;

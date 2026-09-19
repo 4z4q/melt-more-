@@ -1,3 +1,4 @@
+import { SITE_URL, HOME_TITLE, HOME_DESCRIPTION, pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -24,106 +25,12 @@ const Thamny = localFont({
   ],
   variable: "--font-cairo",
 });
-const SITE_URL = "https://black-chcolate.vercel.app";
-
 export const metadata: Metadata = {
+  ...pageMetadata(HOME_TITLE, HOME_DESCRIPTION, "/"),
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: "Melt More | ميلت مور",
-    template: "%s | Melt More",
-  },
-  description:
-    "ميلت مور Melt More – ضيافة شوكولاتة فاخرة للمناسبات والأفراح، باقات راقية، صواني ضيافة، وتقديم فاخر. تجربة ضيافة راقية بأجود أنواع الشوكولاتة. اطلب عبر واتساب.",
-  // app/layout.tsx — keywords محدّثة فقط، باقي الكود كما هو
-  // غيّر فقط قسم keywords في metadata الموجود لديك:
-
-  keywords: [
-    // ✅ الكلمات السهلة أولاً (منافسة منخفضة + نية شراء عالية)
-    "صواني ضيافة الرياض",
-    "صواني شوكولاتة ضيافة",
-    "بكج شوكولاتة مناسبات",
-    "توت بالشوكولاتة الرياض",
-
-    // ✅ كلمات المناسبات (long-tail)
-    "شوكولاتة أفراح الرياض",
-    "توزيعات زواج شوكولاتة",
-    "بكجات هدايا مناسبات الرياض",
-    "شوكولاتة عيد ميلاد الرياض",
-    "توزيعات حفلات الرياض",
-
-    // ✅ الاسم التجاري
-    "ميلت مور",
-    "Melt More",
-    "ميلت مور الرياض",
-    "شوكولاتة الأفراح",
-    "ضيافة المناسبات الرياض",
-
-    // ✅ المنتج + الموقع
-    "شوكولاتة بلجيكية الرياض",
-    "شوكولاتة بلجيكية مصنوعة يدوياً الرياض",
-    "شوكولاتة فاخرة حي الحمراء",
-    "شوكولاتة حي الخليج الرياض",
-
-    // ✅ عام (منافسة عالية — نضعها لكن ما نركّز عليها)
-    "هدايا شوكولاتة فاخرة",
-    "شوكولاتة بلجيكية السعودية",
-    "luxury chocolate Riyadh",
-    "chocolate gifts Riyadh",
-    "Belgian chocolate Saudi Arabia",
-  ],
-  authors: [{ name: "Melt More" }],
-  creator: "Melt More",
-  publisher: "Melt More",
   applicationName: "Melt More",
-  category: "Food & Beverage",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  alternates: {
-    canonical: "/",
-    languages: {
-      "ar-SA": "/",
-      "x-default": "/",
-    },
-  },
-  openGraph: {
-    type: "website",
-    locale: "ar_SA",
-    url: SITE_URL,
-    siteName: "Melt More",
-    title: "Melt More | ضيافة شوكولاتة فاخرة للمناسبات والأفراح",
-    description:
-      "تجربة ضيافة راقية للمناسبات والأفراح بأجود أنواع الشوكولاتة والتقديم الفاخر. باقات مميزة، صواني ضيافة، وقوائم حالي وموالح فاخرة.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Melt More – ضيافة شوكولاتة فاخرة للمناسبات والأفراح",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Melt More | ضيافة شوكولاتة فاخرة للمناسبات والأفراح",
-    description:
-      "ميلت مور – ضيافة شوكولاتة فاخرة للمناسبات والأفراح. باقات راقية وتقديم فاخر.",
-    images: ["/og-image.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  title: { default: HOME_TITLE, template: "%s | ميلت مور" },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 import { ImageKitProvider } from "@imagekit/next";
 import { JsonLd } from "@/components/json-ld";
