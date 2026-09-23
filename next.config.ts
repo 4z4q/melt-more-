@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+        port: "",
+        pathname: "/m0mtj6qx9/**",
+      },
     ],
   },
   typescript: {
@@ -18,4 +24,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
