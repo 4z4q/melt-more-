@@ -36,7 +36,10 @@ import { ImageKitProvider } from "@imagekit/next";
 import { JsonLd } from "@/components/json-ld";
 import { Toaster } from "@/components/ui/toaster";
 
-const imagekitUrlEndpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
+// Keep product images available when the deployment has no ImageKit environment variable.
+const imagekitUrlEndpoint =
+  process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT?.trim() ||
+  "https://ik.imagekit.io/m0mtj6qx9/";
 export default function RootLayout({
   children,
 }: Readonly<{
