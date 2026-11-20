@@ -1,50 +1,63 @@
 "use client";
 import { useState } from "react";
-import { ArrowUpLeft, Check, Gift, Users, Sparkles } from "lucide-react";
+import { ArrowUpLeft, Check, Gift, Users, Sparkles, Cookie } from "lucide-react";
 
 type Package = {
   id: number;
   name: string;
-  guests: string;
-  trays: string;
+  guests: string; // عدد الأشخاص (فارغ للباقات العائلية)
+  trays: number; // إجمالي الصواني
+  sweet: number; // عدد صواني الحالي
+  savory: number; // عدد صواني الموالح
   price: number;
-  gift: string;
+  gifts: string[]; // قائمة الهدايا كاملة
   featured?: boolean;
 };
 
 const WHATSAPP = "966552202321";
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
+// ─── Data (مطابقة لقائمة الأسعار) ─────────────────────────────────────────────
 // الباقات العائلية الصغيرة (للمجالس واللقاءات الخاصة)
 const miniPackages: Package[] = [
-  {
-    id: 9,
-    name: "بكج ميني عائلي",
-    guests: "2 حالي + 2 موالح",
-    trays: "4 صواني",
-    price: 1150,
-    gift: "",
-  },
-  {
-    id: 10,
-    name: "بكج ميني عائلي",
-    guests: "3 حالي + 2 موالح",
-    trays: "5 صواني",
-    price: 1450,
-    gift: "",
-  },
+  { id: 9, name: "بكج ميني عائلي", guests: "", trays: 4, sweet: 2, savory: 2, price: 1150, gifts: [] },
+  { id: 10, name: "بكج ميني عائلي", guests: "", trays: 5, sweet: 3, savory: 2, price: 1450, gifts: [] },
 ];
 
 // باقات المناسبات الكبيرة
 const eventPackages: Package[] = [
-  { id: 1, name: "باقة 1", guests: "50 – 70 شخص", trays: "7 صواني", price: 2050, gift: "50 قطعة" },
-  { id: 2, name: "باقة 2", guests: "100 شخص", trays: "12 صينية", price: 3550, gift: "100 قطعة" },
-  { id: 3, name: "باقة 3", guests: "150 شخص", trays: "16 صينية", price: 4950, gift: "150 قطعة + 4 فازات + مشرفة" },
-  { id: 4, name: "باقة 4", guests: "200 شخص", trays: "20 صينية", price: 6150, gift: "200 قطعة + 4 فازات + مشرفة + تصوير", featured: true },
-  { id: 5, name: "باقة 5", guests: "250 شخص", trays: "24 صينية", price: 7350, gift: "250 قطعة + 6 فازات + تصوير" },
-  { id: 6, name: "باقة 6", guests: "300 شخص", trays: "28 صينية", price: 8550, gift: "300 قطعة + 8 فازات + تصوير" },
-  { id: 7, name: "باقة 7", guests: "350 شخص", trays: "34 صينية", price: 10250, gift: "350 قطعة + تصوير + صينية مطربة" },
-  { id: 8, name: "باقة 8", guests: "400 شخص", trays: "38 صينية", price: 11350, gift: "400 قطعة + تصوير + صينية مطربة" },
+  {
+    id: 1, name: "باقة 1", guests: "50 – 70 شخص", trays: 7, sweet: 4, savory: 3, price: 2050,
+    gifts: ["50 قطعة لوجو بالاسم"],
+  },
+  {
+    id: 2, name: "باقة 2", guests: "100 شخص", trays: 12, sweet: 6, savory: 6, price: 3550,
+    gifts: ["100 قطعة لوجو بالاسم"],
+  },
+  {
+    id: 3, name: "باقة 3", guests: "150 شخص", trays: 16, sweet: 10, savory: 6, price: 4950,
+    gifts: ["150 قطعة", "4 فازات", "مشرفة"],
+  },
+  {
+    id: 4, name: "باقة 4", guests: "200 شخص", trays: 20, sweet: 12, savory: 8, price: 6150,
+    gifts: ["200 قطعة", "4 فازات", "مشرفة", "تصوير"],
+    featured: true,
+  },
+  {
+    id: 5, name: "باقة 5", guests: "250 شخص", trays: 24, sweet: 14, savory: 10, price: 7350,
+    gifts: ["250 قطعة", "6 فازات", "مشرفة", "تصوير"],
+  },
+  {
+    id: 6, name: "باقة 6", guests: "300 شخص", trays: 28, sweet: 16, savory: 12, price: 8550,
+    gifts: ["300 قطعة", "8 فازات", "مشرفة", "تصوير"],
+  },
+  {
+    id: 7, name: "باقة 7", guests: "350 شخص", trays: 34, sweet: 18, savory: 16, price: 10250,
+    gifts: ["350 قطعة", "10 فازات", "مشرفة", "تصوير", "صينية للمطربة"],
+  },
+  {
+    id: 8, name: "باقة 8", guests: "400 شخص", trays: 38, sweet: 20, savory: 18, price: 11350,
+    gifts: ["400 قطعة", "12 فازات", "مشرفة", "تصوير", "صينية للمطربة"],
+  },
 ];
 
 const filters = [
@@ -58,12 +71,20 @@ type FilterKey = (typeof filters)[number]["key"];
 
 const formatPrice = (n: number) => new Intl.NumberFormat("en-US").format(n);
 
-const waLink = (pkg: Package) =>
-  `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
-    `مرحباً ميلت مور، أرغب في الاستفسار عن ${pkg.name}، لعدد ${pkg.guests}، بسعر ${pkg.price} ر.س.`
-  )}`;
+const mixText = (pkg: Package) => `${pkg.sweet} حالي + ${pkg.savory} موالح`;
 
-// ─── Mini card (أفقية، مضغوطة، بدون هدايا) ─────────────────────────────────────
+const waLink = (pkg: Package) => {
+  const parts = [
+    `مرحباً ميلت مور، أرغب في الاستفسار عن ${pkg.name}`,
+    pkg.guests ? `لعدد ${pkg.guests}` : "",
+    `${pkg.trays} صواني (${mixText(pkg)})`,
+    pkg.gifts.length ? `مع ${pkg.gifts.join(" + ")}` : "",
+    `بسعر ${pkg.price} ر.س.`,
+  ].filter(Boolean);
+  return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(parts.join("، "))}`;
+};
+
+// ─── Mini card (أفقية، مضغوطة) ─────────────────────────────────────────────────
 function MiniCard({ pkg }: { pkg: Package }) {
   return (
     <article className="mm-mini-card">
@@ -71,10 +92,10 @@ function MiniCard({ pkg }: { pkg: Package }) {
         <span className="mm-package-number">N° {String(pkg.id).padStart(2, "0")}</span>
         <h4>{pkg.name}</h4>
         <p className="mm-mini-mix">
-          <Users size={16} /> {pkg.guests}
+          <Cookie size={16} /> {mixText(pkg)}
         </p>
         <p className="mm-mini-trays">
-          <Check size={16} /> {pkg.trays}
+          <Check size={16} /> {pkg.trays} صواني
         </p>
       </div>
       <div className="mm-mini-action">
@@ -96,7 +117,7 @@ function MiniCard({ pkg }: { pkg: Package }) {
   );
 }
 
-// ─── Event card (عمودية، فيها الهدايا والتفاصيل) ───────────────────────────────
+// ─── Event card (عمودية: الأشخاص + الصواني + حالي/موالح + كل الهدايا) ──────────
 function EventCard({ pkg }: { pkg: Package }) {
   return (
     <article className={`mm-package-card ${pkg.featured ? "mm-package-featured" : ""}`}>
@@ -118,14 +139,17 @@ function EventCard({ pkg }: { pkg: Package }) {
       </div>
       <div className="mm-package-details">
         <p>
-          <Check size={16} /> {pkg.trays} لضيافة مناسبتك
+          <Check size={16} /> {pkg.trays} صواني لضيافة مناسبتك
         </p>
-        {pkg.gift && (
-          <p>
+        <p>
+          <Cookie size={16} /> <span>{mixText(pkg)}</span>
+        </p>
+        {pkg.gifts.map((g) => (
+          <p key={g}>
             <Gift size={16} />
-            <span>{pkg.gift}</span>
+            <span>{g}</span>
           </p>
-        )}
+        ))}
       </div>
       <a
         className="mm-package-order"
@@ -216,7 +240,7 @@ export function PkgPackages() {
         </div>
 
         <div className="mm-package-note">
-          <span>لأن لكل مناسبة تفاصيلها الخاصة</span>
+          <span>للعميل حرية اختيار الأصناف · خصم 20% لأي صينية مضافة للبكج</span>
           <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer">
             دعنا نساعدك في الاختيار <ArrowUpLeft size={16} />
           </a>
