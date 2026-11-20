@@ -1,6 +1,13 @@
 "use client";
 import { useState } from "react";
-import { ArrowUpLeft, Check, Gift, Users, Sparkles, Cookie } from "lucide-react";
+import {
+  ArrowUpLeft,
+  Check,
+  Gift,
+  Users,
+  Sparkles,
+  Cookie,
+} from "lucide-react";
 
 type Package = {
   id: number;
@@ -19,44 +26,122 @@ const WHATSAPP = "966552202321";
 // ─── Data (مطابقة لقائمة الأسعار) ─────────────────────────────────────────────
 // الباقات العائلية الصغيرة (للمجالس واللقاءات الخاصة)
 const miniPackages: Package[] = [
-  { id: 9, name: "بكج ميني عائلي", guests: "", trays: 4, sweet: 2, savory: 2, price: 1150, gifts: [] },
-  { id: 10, name: "بكج ميني عائلي", guests: "", trays: 5, sweet: 3, savory: 2, price: 1450, gifts: [] },
+  {
+    id: 9,
+    name: "بكج ميني عائلي",
+    guests: "",
+    trays: 4,
+    sweet: 2,
+    savory: 2,
+    price: 1150,
+    gifts: [],
+  },
+  {
+    id: 10,
+    name: "بكج ميني عائلي",
+    guests: "",
+    trays: 5,
+    sweet: 3,
+    savory: 2,
+    price: 1450,
+    gifts: [],
+  },
 ];
 
 // باقات المناسبات الكبيرة
 const eventPackages: Package[] = [
   {
-    id: 1, name: "باقة 1", guests: "50 – 70 شخص", trays: 7, sweet: 4, savory: 3, price: 2050,
+    id: 1,
+    name: "باقة 1",
+    guests: "50 – 70 شخص",
+    trays: 7,
+    sweet: 4,
+    savory: 3,
+    price: 2050,
     gifts: ["50 قطعة لوجو بالاسم"],
   },
   {
-    id: 2, name: "باقة 2", guests: "100 شخص", trays: 12, sweet: 6, savory: 6, price: 3550,
+    id: 2,
+    name: "باقة 2",
+    guests: "100 شخص",
+    trays: 12,
+    sweet: 6,
+    savory: 6,
+    price: 3550,
     gifts: ["100 قطعة لوجو بالاسم"],
   },
   {
-    id: 3, name: "باقة 3", guests: "150 شخص", trays: 16, sweet: 10, savory: 6, price: 4950,
-    gifts: ["150 قطعة", "4 فازات", "مشرفة"],
+    id: 3,
+    name: "باقة 3",
+    guests: "150 شخص",
+    trays: 16,
+    sweet: 10,
+    savory: 6,
+    price: 4950,
+    gifts: ["150 قطعة لوجو بالاسم", "4 فازات", "مشرفة"],
   },
   {
-    id: 4, name: "باقة 4", guests: "200 شخص", trays: 20, sweet: 12, savory: 8, price: 6150,
-    gifts: ["200 قطعة", "4 فازات", "مشرفة", "تصوير"],
+    id: 4,
+    name: "باقة 4",
+    guests: "200 شخص",
+    trays: 20,
+    sweet: 12,
+    savory: 8,
+    price: 6150,
+    gifts: ["200 قطعة لوجو بالاسم", "4 فازات", "مشرفة", "تصوير"],
     featured: true,
   },
   {
-    id: 5, name: "باقة 5", guests: "250 شخص", trays: 24, sweet: 14, savory: 10, price: 7350,
-    gifts: ["250 قطعة", "6 فازات", "مشرفة", "تصوير"],
+    id: 5,
+    name: "باقة 5",
+    guests: "250 شخص",
+    trays: 24,
+    sweet: 14,
+    savory: 10,
+    price: 7350,
+    gifts: ["250 قطعة لوجو بالاسم", "6 فازات", "مشرفة", "تصوير"],
   },
   {
-    id: 6, name: "باقة 6", guests: "300 شخص", trays: 28, sweet: 16, savory: 12, price: 8550,
-    gifts: ["300 قطعة", "8 فازات", "مشرفة", "تصوير"],
+    id: 6,
+    name: "باقة 6",
+    guests: "300 شخص",
+    trays: 28,
+    sweet: 16,
+    savory: 12,
+    price: 8550,
+    gifts: ["300 قطعة لوجو بالاسم", "8 فازات", "مشرفة", "تصوير"],
   },
   {
-    id: 7, name: "باقة 7", guests: "350 شخص", trays: 34, sweet: 18, savory: 16, price: 10250,
-    gifts: ["350 قطعة", "10 فازات", "مشرفة", "تصوير", "صينية للمطربة"],
+    id: 7,
+    name: "باقة 7",
+    guests: "350 شخص",
+    trays: 34,
+    sweet: 18,
+    savory: 16,
+    price: 10250,
+    gifts: [
+      "350 قطعة لوجو بالاسم",
+      "10 فازات",
+      "مشرفة",
+      "تصوير",
+      "صينية للمطربة",
+    ],
   },
   {
-    id: 8, name: "باقة 8", guests: "400 شخص", trays: 38, sweet: 20, savory: 18, price: 11350,
-    gifts: ["400 قطعة", "12 فازات", "مشرفة", "تصوير", "صينية للمطربة"],
+    id: 8,
+    name: "باقة 8",
+    guests: "400 شخص",
+    trays: 38,
+    sweet: 20,
+    savory: 18,
+    price: 11350,
+    gifts: [
+      "400 قطعة لوجو بالاسم",
+      "12 فازات",
+      "مشرفة",
+      "تصوير",
+      "صينية للمطربة",
+    ],
   },
 ];
 
@@ -81,7 +166,9 @@ const waLink = (pkg: Package) => {
     pkg.gifts.length ? `مع ${pkg.gifts.join(" + ")}` : "",
     `بسعر ${pkg.price} ر.س.`,
   ].filter(Boolean);
-  return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(parts.join("، "))}`;
+  return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
+    parts.join("، ")
+  )}`;
 };
 
 // ─── Mini card (أفقية، مضغوطة) ─────────────────────────────────────────────────
@@ -89,7 +176,9 @@ function MiniCard({ pkg }: { pkg: Package }) {
   return (
     <article className="mm-mini-card">
       <div className="mm-mini-info">
-        <span className="mm-package-number">N° {String(pkg.id).padStart(2, "0")}</span>
+        <span className="mm-package-number">
+          N° {String(pkg.id).padStart(2, "0")}
+        </span>
         <h4>{pkg.name}</h4>
         <p className="mm-mini-mix">
           <Cookie size={16} /> {mixText(pkg)}
@@ -120,9 +209,13 @@ function MiniCard({ pkg }: { pkg: Package }) {
 // ─── Event card (عمودية: الأشخاص + الصواني + حالي/موالح + كل الهدايا) ──────────
 function EventCard({ pkg }: { pkg: Package }) {
   return (
-    <article className={`mm-package-card ${pkg.featured ? "mm-package-featured" : ""}`}>
+    <article
+      className={`mm-package-card ${pkg.featured ? "mm-package-featured" : ""}`}
+    >
       <div className="mm-package-top">
-        <span className="mm-package-number">N° {String(pkg.id).padStart(2, "0")}</span>
+        <span className="mm-package-number">
+          N° {String(pkg.id).padStart(2, "0")}
+        </span>
         {pkg.featured && (
           <span className="mm-package-badge">
             <Sparkles size={12} /> باقة مميزة
@@ -176,7 +269,11 @@ export function PkgPackages() {
   });
 
   return (
-    <section id="packages" className="mm-section mm-packages" aria-labelledby="packages-title">
+    <section
+      id="packages"
+      className="mm-section mm-packages"
+      aria-labelledby="packages-title"
+    >
       <div className="mm-container">
         <div className="mm-section-heading">
           <div>
@@ -214,7 +311,11 @@ export function PkgPackages() {
             <p>للأفراح والحفلات والمناسبات الكبيرة</p>
           </div>
 
-          <div className="mm-filter-row" role="group" aria-label="تصفية الباقات حسب عدد الضيوف">
+          <div
+            className="mm-filter-row"
+            role="group"
+            aria-label="تصفية الباقات حسب عدد الضيوف"
+          >
             {filters.map((f) => (
               <button
                 type="button"
@@ -240,8 +341,14 @@ export function PkgPackages() {
         </div>
 
         <div className="mm-package-note">
-          <span>للعميل حرية اختيار الأصناف · خصم 20% لأي صينية مضافة للبكج</span>
-          <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer">
+          <span>
+            للعميل حرية اختيار الأصناف · خصم 20% لأي صينية مضافة للبكج
+          </span>
+          <a
+            href={`https://wa.me/${WHATSAPP}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             دعنا نساعدك في الاختيار <ArrowUpLeft size={16} />
           </a>
         </div>
