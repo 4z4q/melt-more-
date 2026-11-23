@@ -1,4 +1,6 @@
 "use client";
+import { BranchOrder } from "@/components/branch-order";
+
 import { useState } from "react";
 import {
   ArrowUpLeft,
@@ -21,7 +23,6 @@ type Package = {
   featured?: boolean;
 };
 
-const WHATSAPP = "966552202321";
 
 // ─── Data (مطابقة لقائمة الأسعار) ─────────────────────────────────────────────
 // الباقات العائلية الصغيرة (للمجالس واللقاءات الخاصة)
@@ -158,7 +159,7 @@ const formatPrice = (n: number) => new Intl.NumberFormat("en-US").format(n);
 
 const mixText = (pkg: Package) => `${pkg.sweet} حالي + ${pkg.savory} موالح`;
 
-const waLink = (pkg: Package) => {
+const packageMessage = (pkg: Package) => {
   const parts = [
     `مرحباً ميلت مور، أرغب في الاستفسار عن ${pkg.name}`,
     pkg.guests ? `لعدد ${pkg.guests}` : "",
@@ -166,20 +167,18 @@ const waLink = (pkg: Package) => {
     pkg.gifts.length ? `مع ${pkg.gifts.join(" + ")}` : "",
     `بسعر ${pkg.price} ر.س.`,
   ].filter(Boolean);
-  return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
-    parts.join("، ")
-  )}`;
+  return parts.join("، ");
 };
 
 // ─── Mini card (أفقية، مضغوطة) ─────────────────────────────────────────────────
 function MiniCard({ pkg }: { pkg: Package }) {
   return (
-    <article className="mm-mini-card">
+    <article id={"package-" + pkg.id} className="mm-mini-card">
       <div className="mm-mini-info">
         <span className="mm-package-number">
           N° {String(pkg.id).padStart(2, "0")}
         </span>
-        <h4>{pkg.name}</h4>
+        <h4>{pkg.name} · {pkg.trays} صواني</h4>
         <p className="mm-mini-mix">
           <Cookie size={16} /> {mixText(pkg)}
         </p>
@@ -192,15 +191,12 @@ function MiniCard({ pkg }: { pkg: Package }) {
           <strong>{formatPrice(pkg.price)}</strong>
           <span>ر.س</span>
         </div>
-        <a
-          className="mm-package-order"
-          href={waLink(pkg)}
-          target="_blank"
-          rel="noopener noreferrer"
+        <BranchOrder
+          className="mm-package-order" message={packageMessage(pkg)}
           aria-label={`اطلب ${pkg.name} عبر واتساب`}
         >
-          اطلب الآن <ArrowUpLeft size={18} />
-        </a>
+          اطلب عبر واتساب <ArrowUpLeft size={18} />
+        </BranchOrder>
       </div>
     </article>
   );
@@ -210,6 +206,7 @@ function MiniCard({ pkg }: { pkg: Package }) {
 function EventCard({ pkg }: { pkg: Package }) {
   return (
     <article
+      id={"package-" + pkg.id}
       className={`mm-package-card ${pkg.featured ? "mm-package-featured" : ""}`}
     >
       <div className="mm-package-top">
@@ -222,9 +219,9 @@ function EventCard({ pkg }: { pkg: Package }) {
           </span>
         )}
       </div>
-      <h3>{pkg.name}</h3>
+      <h3>ضيافة {pkg.guests}</h3>
       <p className="mm-package-guests">
-        <Users size={16} /> {pkg.guests}
+        <Users size={16} /> {pkg.name}
       </p>
       <div className="mm-package-price">
         <strong>{formatPrice(pkg.price)}</strong>
@@ -244,15 +241,12 @@ function EventCard({ pkg }: { pkg: Package }) {
           </p>
         ))}
       </div>
-      <a
-        className="mm-package-order"
-        href={waLink(pkg)}
-        target="_blank"
-        rel="noopener noreferrer"
+      <BranchOrder
+        className="mm-package-order" message={packageMessage(pkg)}
         aria-label={`اطلب ${pkg.name} عبر واتساب`}
       >
-        اختر هذه الباقة <ArrowUpLeft size={18} />
-      </a>
+        اطلب هذه الباقة <ArrowUpLeft size={18} />
+      </BranchOrder>
     </article>
   );
 }
@@ -344,13 +338,10 @@ export function PkgPackages() {
           <span>
             للعميل حرية اختيار الأصناف · خصم 20% لأي صينية مضافة للبكج
           </span>
-          <a
-            href={`https://wa.me/${WHATSAPP}`}
-            target="_blank"
-            rel="noopener noreferrer"
+          <BranchOrder
           >
             دعنا نساعدك في الاختيار <ArrowUpLeft size={16} />
-          </a>
+          </BranchOrder>
         </div>
       </div>
     </section>

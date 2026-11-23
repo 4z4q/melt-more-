@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 
 // Override only when moving the public website to a new canonical domain.
 export const SITE_URL = new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://melt-more.vercel.app").origin;
-export const HOME_TITLE = "ميلت مور | حلويات وشوكولاتة سويسرية في الرياض";
-export const HOME_DESCRIPTION = "ميلت مور في الرياض: شوكولاتة سويسرية، حلويات وصواني ضيافة، وباقات حالي وموالح للأفراح والمناسبات. استعرض الباقات والحشوات ونسّق طلبك عبر واتساب.";
+export const HOME_TITLE = "ميلت مور | ضيافة زواج وملكة واستقبالات في السعودية";
+export const HOME_DESCRIPTION = "باقات ضيافة زواج وملكة وأفراح واستقبالات من ميلت مور، بصواني حالي وموالح وشوكولاتة سويسرية. استعرض الأسعار واطلب من فرع الرياض أو الطائف مع توصيل لجميع مناطق المملكة.";
 export function pageMetadata(title: string, description: string, pathname: string): Metadata {
   return {
     title: { absolute: title }, description,

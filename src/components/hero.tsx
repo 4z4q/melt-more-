@@ -8,10 +8,10 @@ export function Hero() {
       <div className="mm-hero-shade" />
       <div className="mm-container mm-hero-content">
         <p className="mm-eyebrow"><span /> MELT MORE · CHOCOLATE & MORE</p>
-        <h1 id="hero-title">حلويات الرياض،<br /><em>بلمسة ميلت مور.</em></h1>
-        <p className="mm-hero-description">شوكولاتة سويسرية وحلويات وصواني ضيافة في الرياض.<br className="hidden sm:block" /> باقات حالي وموالح تُكمل جمال أفراحك ومناسباتك.</p>
+        <h1 id="hero-title">تجهيز المناسبــات،<br /><em>بلمسة ميلت مور.</em></h1>
+        <p className="mm-hero-description">من فروعنا في الرياض والطائف، نوصل ضيافتك لجميع مناطق المملكة.<br className="hidden sm:block" /> باقات حالي وموالح تبدأ من ١٬١٥٠ ريال.</p>
         <div className="mm-actions">
-          <a className="mm-button mm-button-gold" href="#packages">اكتشف باقات الضيافة <ArrowUpLeft size={18} /></a>
+          <a className="mm-button mm-button-gold" href="#packages">شوف الباقات والأسعار <ArrowUpLeft size={18} /></a>
           <Link className="mm-button mm-button-glass" href="/flavours">تعرّف على الحشوات <ArrowUpLeft size={18} /></Link>
         </div>
       </div>

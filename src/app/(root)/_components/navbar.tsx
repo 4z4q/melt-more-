@@ -33,7 +33,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", update);
   }, [pathname]);
 
-  const current = pathname === "/flavours" ? "flavours" : active;
+  const current = pathname === "/" ? active : pathname.slice(1);
   return (
     <header className={`mm-header ${scrolled || pathname !== "/" ? "mm-header-solid" : ""}`}>
       <div className="mm-nav mm-container">

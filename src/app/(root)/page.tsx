@@ -1,3 +1,4 @@
+import { BranchOrder } from "@/components/branch-order";
 import { HOME_TITLE, HOME_DESCRIPTION, pageMetadata } from "@/lib/seo";
 // app/(root)/page.tsx
 import { Hero } from "@/components/hero";
@@ -43,13 +44,10 @@ export default function Page() {
               <em>الحلوة.</em>
             </h2>
             <p>إجابات تساعدك في تنسيق ضيافتك.</p>
-            <a
-              href="https://wa.me/966552202321"
-              target="_blank"
-              rel="noopener noreferrer"
+            <BranchOrder
             >
               لديك سؤال آخر؟ تواصل معنا ↖
-            </a>
+            </BranchOrder>
           </div>
           <div>
             {faqs.map(({ q, a }, i) => (
